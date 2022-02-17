@@ -16,4 +16,4 @@ spikeProtein
 
 # This gene is highly conserved because the first 97 sequences have a 100% sequence identity.  
 # The most unique 3 variant still have a 99.87% sequence identity. 
-# There is minnimal variabtion in the codinng sequnce of the spike protein.
+# There is minimal variation in the coding sequence of the spike protein.
