@@ -1,0 +1,47 @@
+---
+title: "Analysis"
+author: "Brooke Holmes"
+date: "15/02/2022"
+output: html_document
+---
+
+Loading the librarys and importing the Sequences.csv file
+```{r}
+library(dplyr)
+library(knitr)
+library(tidyr)
+library(stringr)
+seqs<-read.csv("Sequences.csv")
+head(seqs)
+```
+
+
+```{r}
+a<- nchar(gsub("[^A]","",seqs$Sequence))
+t<- nchar(gsub("[^T]","",seqs$Sequence)) 
+g<- nchar(gsub("[^G]","",seqs$Sequence))
+c<- nchar(gsub("[^C]","",seqs$Sequence))
+counter<- data.frame(Name = seqs$Name, a = a, t = t, g = g, c = c)
+
+print(seqs$Sequence[1])
+print(seqs$Sequence[2])
+print(seqs$Sequence[3])
+print(seqs$Sequence)
+
+print(counter)
+```
+
+[Linked jpg file](./download.jpg)
+
+[Linked Website](https://en.wikipedia.org/wiki/Borrelia_burgdorferi)
+
+```{r}
+GCpercent <- summarize("GC_Content(%)" = ((g + c) / (g + c + a + t)) * 100, counter)
+
+seq1 <- c("HQ433692.1", "HQ433694.1", "HQ433691.1")
+
+GCcontent <- data.frame("Sequence_ID" = seq1, "GC_Content(%)" = GCpercent)
+GCcontent
+```
+
+
